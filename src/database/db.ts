@@ -1,12 +1,7 @@
-import { connect } from "mongoose";
+import { MongoClient } from "mongodb"
+import * as mongoDB from "mongodb";
 
-function connects(){
-    return connect('mongodb://localhost:27017/receitas')
-    .then(()=>{
-        console.log("db Connected")
-    }).catch((error:any)=>{
-        console.log(error)
-    })
-}
+const uri = process.env.DB_CONN_STRING;
 
-export default connects;
+export const client = new MongoClient(`${uri}`);
+export const collections: { receitas?: mongoDB.Collection } = {}
