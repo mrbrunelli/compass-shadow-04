@@ -10,7 +10,7 @@ const receitaService = new ReceitaService(
   new ReceitaRepository(getConnection())
 );
 
-receitaController.post("/receitas", async (req, res) => {
+receitaController.post("/receitas", async (req: Request, res: Response) => {
   try {
     const receita: Receita = req.body;
     const receitaSalva = await receitaService.cadastra(receita);
