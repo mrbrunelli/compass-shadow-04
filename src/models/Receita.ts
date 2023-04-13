@@ -1,10 +1,10 @@
 import { ObjectId } from "mongodb";
+import { Autor } from "./Autor";
 
-export default class Receita {
-    constructor(
-        public name: string,
-        public ingredients:Array<String>,
-        public preparation: String,
-        public recipeAuthor:{}, 
-        public id?: ObjectId) { }
+export interface Receita {
+  _id?: ObjectId;
+  name: string;
+  ingredients: string;
+  preparation: string;
+  recipeAuthor: Autor;
 }
